@@ -13,10 +13,10 @@ exports.createUser = (req, res) => {
   });
   user.save((err, userCreated) => {
     if (err) {
-      res.send("POST request for creating a user failed.");
+      res.send('POST request for creating a user failed.');
     }
     res.json(userCreated);
-  }); 
+  });
 };
 
 // GET all users
