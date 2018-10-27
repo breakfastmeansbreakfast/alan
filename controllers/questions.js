@@ -37,7 +37,7 @@ exports.getQuestions = (req, res) => {
     if (err) {
       res.json('Something went wrong, please try again.');
     }
-    sendresponse('447787168962', 'test')
+    sendresponse(req.query.from, 'test')
     res.json('OK');
   });
 };
