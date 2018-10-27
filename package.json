@@ -1,0 +1,22 @@
+{
+  "name": "askalan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breakfastmeansbreakfast/alan.git"
+  },
+  "author": "Tom Dunn, Nick McAlpine, Amy Hart, Elena Stagg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/breakfastmeansbreakfast/alan/issues"
+  },
+  "homepage": "https://github.com/breakfastmeansbreakfast/alan#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
