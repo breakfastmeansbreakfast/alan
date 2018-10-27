@@ -8,4 +8,4 @@ const questionSchema = new Schema({
   question: String,
 });
 
-module.exports = mongoose.model('Question', questionSchema);
+module.exports = mongoose.model('question', questionSchema);

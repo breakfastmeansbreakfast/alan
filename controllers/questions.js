@@ -1,22 +1,11 @@
 // Controller for handling '/Questions' get requests
 const mongoose = require('mongoose');
-const Question = require('../models/question.js');
-
-/*
-exports.getQuestion= (req, res) => {
-  Question.findById(req.params.questionId, (err, question) => {
-    if (err) {
-      res.json('Could not find question');
-    }
-    res.json(question);
-  });
-};
-*/
+const question = require('../models/questions.js');
 
 // POST a question
 
 exports.createQuestion = (req, res) => {
-  const question = new Question ({
+  const question = new question ({
     question: req.body.question,
   });
   question.save((err, questionCreated) => {

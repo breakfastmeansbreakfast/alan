@@ -15,7 +15,7 @@ const port = 3000;
 app.get('/', (req, res) => res.send('Hello World!'));
 
 // POST a question
-app.post('/questions/', createQuestion);
+app.post('/questions', createQuestion);
 
 // GET all questions
 app.get('/questions', getQuestions);
