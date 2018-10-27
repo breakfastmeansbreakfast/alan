@@ -9,6 +9,7 @@ const dotenv = require('dotenv').config({
 });
 
 const app = express();
+
 app.use(bodyParser.json());
 const port = 3000;
 
@@ -21,6 +22,13 @@ app.post('/questions', createQuestion);
 app.get('/questions', getQuestions);
 
 // GET a specific question by ID
-app.get('/questions/:questionID', getQuestionById);
+app.get('/questions/:questionId', getQuestionById);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+// PUT / UPDATE a question
+
+mongoose.connect(process.env.DATABASE_CONN, () => {
+  console.log('connected to database');
+  app.listen(port, () => {
+    console.log('server listening on http://127.0.0.1:3000');
+  });
+});
