@@ -38,6 +38,7 @@ exports.getQuestions = (req, res) => {
       res.json('Something went wrong, please try again.');
     }
     sendresponse('447787168962', 'test')
+    res.json('OK');
   });
 };
 
