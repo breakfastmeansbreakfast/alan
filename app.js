@@ -4,14 +4,18 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const { createQuestion, getQuestions, getQuestionById } = require('./controllers/questions'); 
 
-const dotenv = require('dotenv').config({
-  path: './settings.env',
-});
+const dotenv = require('dotenv');
+const cors = require('cors');
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config({
+    path: './settings.env',
+  });
+}
 
 const app = express();
-
+app.use(cors());
 app.use(bodyParser.json());
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
@@ -29,6 +33,8 @@ app.get('/questions/:questionId', getQuestionById);
 mongoose.connect(process.env.DATABASE_CONN, () => {
   console.log('connected to database');
   app.listen(port, () => {
-    console.log('server listening on http://127.0.0.1:3000');
+    console.log(`server listening ${port}`);
   });
 });
+
+module.exports = app;
