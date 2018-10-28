@@ -57,4 +57,4 @@ exports.getQuestions = (req, res) => {
     sendresponse(req.query.from, getRandomIndex(conversationTopics));
     res.json(questions);
   });
- };
+};
