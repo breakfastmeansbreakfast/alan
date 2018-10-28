@@ -4,7 +4,7 @@ const User = require('../models/users.js');
 
 exports.createUser = (req, res) => {
   const user = new User({
-    userId: req.body.userId,
+    phoneNo: req.body.phoneNo,
     previousResponses: req.body.previousResponses,
   });
   user.save((err, userCreated) => {
@@ -28,14 +28,13 @@ exports.getUsers = (req, res) => {
 
 // PUT/ UPDATE a specific user by ID
 
-/*
-exports.updateUserById = (req, res) => {
-  User.findById(req.params.userId, (err, user) => {
+exports.updateUser = (req, res) => {
+  User.findOne({ phoneNo: req.params.phoneNo }, (err, user) => {
     if (err) {
       res.json('Could not find user');
     }
     user.set({ previousResponses: req.body.previousResponses });
-    question.save((updateErr, userUpdated) => {
+    user.save((updateErr, userUpdated) => {
       if (updateErr) {
         res.json('Could not update user previous responses');
       }
@@ -43,4 +42,3 @@ exports.updateUserById = (req, res) => {
     });
   });
 };
-*/

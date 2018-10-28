@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { createQuestion, getQuestions, getQuestionById } = require('./controllers/questions');
-const { createUser, getUsers, getUserById } = require('./controllers/users');
+const { createUser, getUsers, updateUser } = require('./controllers/users');
 
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -32,10 +32,11 @@ app.get('/questions/:questionId', getQuestionById);
 // POST a user
 app.post('/users', createUser);
 
-// GET all questions
+// GET all users
 app.get('/users', getUsers);
 
-// PUT / UPDATE a question
+// PUT / UPDATE a user
+app.put('/users/:phoneNo', updateUser);
 
 mongoose.connect(process.env.DATABASE_CONN, () => {
   console.log('connected to database');
