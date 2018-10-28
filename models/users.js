@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  userId: String,
+  phoneNo: String,
   previousResponses: Array,
 });
 

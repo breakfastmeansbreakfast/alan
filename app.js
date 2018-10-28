@@ -3,10 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { createQuestion, getQuestions, getQuestionById } = require('./controllers/questions');
+const { createUser, getUsers, updateUser } = require('./controllers/users');
 
 const dotenv = require('dotenv');
 const cors = require('cors');
-
 if (process.env.NODE_ENV !== 'production') {
   dotenv.config({
     path: './settings.env',
@@ -29,7 +29,14 @@ app.get('/questions', getQuestions);
 // GET a specific question by ID
 app.get('/questions/:questionId', getQuestionById);
 
-// PUT / UPDATE a question
+// POST a user
+app.post('/users', createUser);
+
+// GET all users
+app.get('/users', getUsers);
+
+// PUT / UPDATE a user
+app.put('/users/:phoneNo', updateUser);
 
 mongoose.connect(process.env.DATABASE_CONN, () => {
   console.log('connected to database');
