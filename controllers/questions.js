@@ -89,8 +89,8 @@ exports.getQuestions = (req, res) => {
     if (validQuery(query) === true) {
       smsmsg = query.toUpperCase();
       smsmsg == 'ASKALAN CONVO' ? sendresponse(req.query.from, getRandomIndex(conversationTopics)) : console.log('not a convo');
-      smsmsg == 'ASKALAN JOKE' ? sendresponse(req.query.from, getRandomIndex(chatUps)) : console.log('not a joke');
-      smsmsg == 'ASKALAN CHATUP' ? sendresponse(req.query.from, getRandomIndex(jokeTopics)) : console.log('not a chat up');
+      smsmsg == 'ASKALAN JOKE' ? sendresponse(req.query.from, getRandomIndex(jokeTopics)) : console.log('not a joke');
+      smsmsg == 'ASKALAN CHATUP' ? sendresponse(req.query.from, getRandomIndex(chatUps)) : console.log('not a chat up');
     } else {
       sendresponse(req.query.from, 'Umm hi.... you need to ask me for a joke or a conversation starter. Text Askalan convo, Askalan joke or Askalan chatup.');
     }
