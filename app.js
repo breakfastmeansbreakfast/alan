@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { createQuestion, getQuestions } = require('./controllers/questions');
+const { createQuestion, getQuestions, getAllQuestions } = require('./controllers/questions');
 const { createUser, getUsers, updateUser } = require('./controllers/users');
 
 const dotenv = require('dotenv');
@@ -24,6 +24,9 @@ app.get('/', (req, res) => res.send('Hello World!'));
 app.post('/questions', createQuestion);
 
 // GET all questions
+app.get('/allquestions', getAllQuestions);
+
+// GET questions from parameters
 app.get('/questions', getQuestions);
 
 // POST a user

@@ -47,6 +47,17 @@ exports.createQuestion = (req, res) => {
 
 // GET all questions
 
+exports.getAllQuestions = (req, res) => {
+ Question.find({}, (err, questions) => {
+   if (err) {
+     res.json('Something went wrong, please try again.');
+   }
+   res.json(questions);
+ });
+};
+
+// GET questions from parameters 
+
 exports.getQuestions = (req, res) => {
   Question.find({}, (err, questions) => {
     if (err) {
