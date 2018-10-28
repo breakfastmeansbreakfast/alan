@@ -5,10 +5,10 @@ const clockwork = require('clockwork')({ key: 'bda6f6f63cb6aca638e229783db06237c
 
 const conversationTopics =
   [
-    'What`s your favourite now defunct airline?',
+    'Whats your favourite now defunct airline?',
     'Would you rather an army of 100 bees or 2 polar bears?',
     'Which vegetable would you choose to be a super hero?',
-    'what`s the best way to dispose of a body?',
+    'whats the best way to dispose of a body?',
     'How often do you wash your towels?',
     'what is the best thing?',
   ];
@@ -21,7 +21,7 @@ const chatUps = [
 
 const jokeTopics = [
   'How do you find Will Smith in the snow? Follow the fresh prints',
-  'When is your door not actually a door? When it’s actually ajar',
+  'When is your door not actually a door? When its actually ajar',
   'What do you call a man who can’t stand? Neil',
 ];
 
