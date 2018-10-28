@@ -13,6 +13,18 @@ const conversationTopics =
     'what is the best thing?',
   ];
 
+const chatUps = [
+  'Did you just fart? Because you blow me away!',
+  'If you were a Transformer, youd be Optimus Fine.',
+  'Whats your favorite silverware? Because I like to spoon!',
+];
+
+const jokeTopics = [
+  'How do you find Will Smith in the snow? Follow the fresh prints',
+  'When is your door not actually a door? When it’s actually ajar',
+  'What do you call a man who can’t stand? Neil',
+];
+
 const getRandomIndex = (array) => {
   const randomNumber = Math.floor(Math.random() * (array.length - 1));
   console.log(array[randomNumber]);
@@ -76,8 +88,9 @@ exports.getQuestions = (req, res) => {
     };
     if (validQuery(query) === true) {
       smsmsg = query.toUpperCase();
-      smsmsg.includes('CONVERSATION') ? console.log('render conversation topics') : console.log('render jokes');
-      sendresponse(req.query.from, getRandomIndex(conversationTopics));
+      smsmsg == 'ASKALAN CONVO' ? sendresponse(req.query.from, getRandomIndex(conversationTopics)) : console.log('not a convo');
+      smsmsg == 'ASKALAN JOKE' ? sendresponse(req.query.from, getRandomIndex(chatUps)) : console.log('not a joke');
+      smsmsg == 'ASKALAN CHATUP' ? sendresponse(req.query.from, getRandomIndex(jokeTopics)) : console.log('not a chat up');
     } else {
       sendresponse(req.query.from, 'Umm hi.... you need to ask me for a joke or a conversation starter. Text Askalan convo, Askalan joke or Askalan chatup.');
     }
