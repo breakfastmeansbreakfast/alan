@@ -1,5 +1,4 @@
 // Controller for handling '/Questions' get requests
-const mongoose = require('mongoose');
 const Question = require('../models/questions.js');
 
 const clockwork = require('clockwork')({ key: 'bda6f6f63cb6aca638e229783db06237c0d5f155' });
@@ -33,7 +32,7 @@ const sendresponse = (phoneno, message) => {
 // POST a question
 
 exports.createQuestion = (req, res) => {
-  const question = new Question ({
+  const question = new Question({
     questionId: req.body.questionId,
     question: req.body.question,
     category: req.body.category,
@@ -53,36 +52,9 @@ exports.getQuestions = (req, res) => {
     if (err) {
       res.json('Something went wrong, please try again.');
     }
+    let smsmsg = req.query.content.toUpperCase();
+    smsmsg.includes('CONVERSATION') ? console.log('render conversation topics') : console.log('render jokes');
     sendresponse(req.query.from, getRandomIndex(conversationTopics));
-    res.json('OK');
+    res.json(questions);
   });
-};
-
-// GET specific question by ID
-
-exports.getQuestionById = (req, res) => {
-  Question.findOne({ questionId }, function (err, question) {
-    if (err) {
-      res.json('Could not find question');
-    }
-    res.json(question);
-  });
-};
-
-// PUT/ UPDATE a specific question by ID
-
-exports.updateQuestionById = (req, res) => {
-  User.findById(req.params.questionId, (err, user) => {
-    if (err) {
-      res.json('Could not find question');
-    }
-    question.set({ question: req.body.question });
-    question.set({ category: req.body.category });
-    question.save((updateErr, questionUpdated) => {
-      if (updateErr) {
-        res.json('Could not update question');
-      }
-      res.json(questionUpdate);
-    });
-  });
-};
+ };

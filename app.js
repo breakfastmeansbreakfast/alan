@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { createQuestion, getQuestions, getQuestionById } = require('./controllers/questions');
+const { createQuestion, getQuestions } = require('./controllers/questions');
 const { createUser, getUsers, updateUser } = require('./controllers/users');
 
 const dotenv = require('dotenv');
@@ -26,9 +26,6 @@ app.post('/questions', createQuestion);
 // GET all questions
 app.get('/questions', getQuestions);
 
-// GET a specific question by ID
-app.get('/questions/:questionId', getQuestionById);
-
 // POST a user
 app.post('/users', createUser);
 
@@ -38,7 +35,7 @@ app.get('/users', getUsers);
 // PUT / UPDATE a user
 app.put('/users/:phoneNo', updateUser);
 
-mongoose.connect(process.env.DATABASE_CONN, () => {
+mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true }, () => {
   console.log('connected to database');
   app.listen(port, () => {
     console.log(`server listening ${port}`);
