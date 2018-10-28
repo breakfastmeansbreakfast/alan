@@ -35,7 +35,7 @@ app.get('/users', getUsers);
 // PUT / UPDATE a user
 app.put('/users/:phoneNo', updateUser);
 
-mongoose.connect(process.env.DATABASE_CONN, () => {
+mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true }, () => {
   console.log('connected to database');
   app.listen(port, () => {
     console.log(`server listening ${port}`);
