@@ -31,7 +31,7 @@ app.get('/questions/:questionId', getQuestionById);
 
 // PUT / UPDATE a question
 
-mongoose.connect(process.env.DATABASE_CONN, () => {
+mongoose.connect(process.env.DATABASE_CONN, { useNewUrlParser: true }, () => {
   console.log('connected to database');
   app.listen(port, () => {
     console.log(`server listening ${port}`);
