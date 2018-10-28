@@ -56,5 +56,6 @@ exports.getQuestions = (req, res) => {
     smsmsg.includes('CONVERSATION') ? console.log('render conversation topics') : console.log('render jokes');
     sendresponse(req.query.from, getRandomIndex(conversationTopics));
     res.json(questions);
+    console.log('message sending complete.');
   });
 };
