@@ -54,12 +54,23 @@ exports.getQuestions = (req, res) => {
     }
     let smsmsg = 'blank';
     let query = req.query.content;
-    if (req.query.content = true) {
+    const validQuery = (thequery) => {
+      
+      let valid = false;/*
+      if (query.includes('convo')) {valid = true }
+      else (query.includes('joke')) {valid = true }
+      return valid */
+      thequery == 'convo' ? valid = true : valid = false;
+      console.log(thequery);
+      console.log(valid);
+      return valid;
+    };
+    if (validQuery(query) === true) {
       smsmsg = query.toUpperCase();
       smsmsg.includes('CONVERSATION') ? console.log('render conversation topics') : console.log('render jokes');
       sendresponse(req.query.from, getRandomIndex(conversationTopics));
     } else {
- sendresponse(req.query.from, 'Umm hi.... you need to ask me for a joke or a conversation starter. Text Askalan convo or Askalan joke');
+      sendresponse(req.query.from, 'Umm hi.... you need to ask me for a joke or a conversation starter. Text Askalan convo or Askalan joke');
     }
     res.json(questions);
   });
