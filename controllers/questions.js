@@ -66,12 +66,10 @@ exports.getQuestions = (req, res) => {
     let smsmsg = 'blank';
     let query = req.query.content;
     const validQuery = (thequery) => {
-      
-      let valid = false;/*
-      if (query.includes('convo')) {valid = true }
-      else (query.includes('joke')) {valid = true }
-      return valid */
-      thequery == 'convo' ? valid = true : valid = false;
+      let valid = false;
+      thequery == 'Askalan convo' ? valid = true : console.log('not a convo');
+      thequery == 'Askalan joke' ? valid = true : console.log('not a joke');
+      thequery == 'Askalan chatup' ? valid = true : console.log('not a chat up');
       console.log(thequery);
       console.log(valid);
       return valid;
