@@ -52,7 +52,8 @@ exports.getQuestions = (req, res) => {
     if (err) {
       res.json('Something went wrong, please try again.');
     }
-    let smsmsg = req.query.content.toUpperCase();
+    let smsmsg = 'blank';
+    if (req.query.content = true) { smsmsg = req.query.content.toUpperCase() }else{ smsmsg = 'blank'};
     smsmsg.includes('CONVERSATION') ? console.log('render conversation topics') : console.log('render jokes');
     sendresponse(req.query.from, getRandomIndex(conversationTopics));
     res.json(questions);
