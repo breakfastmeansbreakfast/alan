@@ -53,14 +53,14 @@ exports.getQuestions = (req, res) => {
       res.json('Something went wrong, please try again.');
     }
     let smsmsg = 'blank';
+    let query = req.query.content;
     if (req.query.content = true) {
-      smsmsg = req.query.content.toUpperCase();
+      smsmsg = query.toUpperCase();
       smsmsg.includes('CONVERSATION') ? console.log('render conversation topics') : console.log('render jokes');
       sendresponse(req.query.from, getRandomIndex(conversationTopics));
     } else {
  sendresponse(req.query.from, 'Umm hi.... you need to ask me for a joke or a conversation starter. Text Askalan convo or Askalan joke');
     }
     res.json(questions);
-    console.log('message sending complete.');
-  }); 
+  });
 };
