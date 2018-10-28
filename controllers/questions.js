@@ -79,7 +79,7 @@ exports.getQuestions = (req, res) => {
       smsmsg.includes('CONVERSATION') ? console.log('render conversation topics') : console.log('render jokes');
       sendresponse(req.query.from, getRandomIndex(conversationTopics));
     } else {
-      sendresponse(req.query.from, 'Umm hi.... you need to ask me for a joke or a conversation starter. Text Askalan convo or Askalan joke');
+      sendresponse(req.query.from, 'Umm hi.... you need to ask me for a joke or a conversation starter. Text Askalan convo, Askalan joke or Askalan chatup.');
     }
     res.json(questions);
   });
