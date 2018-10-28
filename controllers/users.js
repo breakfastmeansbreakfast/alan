@@ -1,13 +1,9 @@
-
-
-// Controller for handling '/Questions' get requests
-const mongoose = require('mongoose');
 const User = require('../models/users.js');
 
 // POST a user
 
 exports.createUser = (req, res) => {
-  const user = new User ({
+  const user = new User({
     userId: req.body.userId,
     previousResponses: req.body.previousResponses,
   });
@@ -22,11 +18,17 @@ exports.createUser = (req, res) => {
 // GET all users
 
 exports.getUsers = (req, res) => {
-  res.send('GET request for list of all users');
+  User.find({}, (err, users) => {
+    if (err) {
+      res.json('Something went wrong, please try again.');
+    }
+    res.json(users);
+  });
 };
 
 // PUT/ UPDATE a specific user by ID
 
+/*
 exports.updateUserById = (req, res) => {
   User.findById(req.params.userId, (err, user) => {
     if (err) {
@@ -41,3 +43,4 @@ exports.updateUserById = (req, res) => {
     });
   });
 };
+*/
