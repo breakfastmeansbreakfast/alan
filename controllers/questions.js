@@ -10,19 +10,33 @@ const conversationTopics =
     'Which vegetable would you choose to be a super hero?',
     'whats the best way to dispose of a body?',
     'How often do you wash your towels?',
-    'what is the best thing?',
+    'What is the best thing?',
+    'What is your favourite source of fibre',
+    'How does all this end?',
+    'Lets talk dead celebrities and cars. Henry the VIII? Range Rover Sport HSE.',
   ];
 
 const chatUps = [
   'Did you just fart? Because you blow me away!',
   'If you were a Transformer, youd be Optimus Fine.',
   'Whats your favorite silverware? Because I like to spoon!',
+  'Are you O.K.? because its a long fall from heaven',
+  'Are you a parking ticket? Cause you have got fine written all over you',
+  'Hey, my name is Microsoft, can I crash at your place tonight',
+  'You must be made of cheese, because youn are looking Gouda tonight',
+  'If you were a phaser on Star Trek, Youd be set to stun',
 ];
 
 const jokeTopics = [
   'How do you find Will Smith in the snow? Follow the fresh prints',
   'When is your door not actually a door? When its actually ajar',
   'What do you call a man who can’t stand? Neil',
+  'What did the buffalo say when his son left? Bison',
+  'Why shouldnt you write with a broken pencil? Because its pointless',
+  'Want to hear a joke about a piece of paper? Never mind… Its tearable',
+  'Why doesnt PacMan use Twitter? He doesnt like being followed',
+  'Why does the keyboard work 24 hours? Because it has two shifts',
+  'How many ears does Mr. Spock have? 3, the left ear, the right ear & the final front-ear',
 ];
 
 const getRandomIndex = (array) => {
