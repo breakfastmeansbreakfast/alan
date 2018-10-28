@@ -1,8 +1,8 @@
+/* eslint-disable no-console */
 const express = require('express');
 const mongoose = require('mongoose');
-const path = require('path');
 const bodyParser = require('body-parser');
-const { createQuestion, getQuestions, getQuestionById } = require('./controllers/questions'); 
+const { createQuestion, getQuestions, getQuestionById } = require('./controllers/questions');
 
 const dotenv = require('dotenv');
 const cors = require('cors');

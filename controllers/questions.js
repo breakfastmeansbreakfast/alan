@@ -12,10 +12,10 @@ exports.createQuestion = (req, res) => {
   });
   question.save((err, questionCreated) => {
     if (err) {
-      res.send("POST request for creating a question failed.");
+      res.send('POST request for creating a question failed.');
     }
     res.json(questionCreated);
-  }); 
+  });
 };
 
 // GET all questions
@@ -32,7 +32,7 @@ exports.getQuestions = (req, res) => {
 // GET specific question by ID
 
 exports.getQuestionById = (req, res) => {
-  Question.findOne({ questionId }, function (err, question){
+  Question.findOne({ questionId }, function (err, question) {
     if (err) {
       res.json('Could not find question');
     }
