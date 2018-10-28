@@ -1,4 +1,6 @@
 const sendsms = require('./src/sendsms');
-const app = require('./app');
+<<<<<<< HEAD
+=======
 
-// sendsms.sendresponse(phoneno, messagecontent);
+>>>>>>> 5f729158ef90cbdc2512fa44548ed50377d8d782
+const app = require('./app');
